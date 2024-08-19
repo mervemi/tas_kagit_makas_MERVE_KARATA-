@@ -1,0 +1,78 @@
+import random
+
+def rock_paper_scissors(Username):
+    print(f"{Username}, Welcome to the Rock, Paper, Scissors game! Whoever wins two rounds is the winner of the game. Let's start! ")
+    moves = ["rock", "paper", "scissors"]
+
+    player_wins = 0
+    computer_wins = 0
+
+    while (player_wins < 2) and (computer_wins < 2):
+        comp_choice = random.choice(moves)
+        user_choice = input("Rock, Paper or Scissors: ")
+        user_choice = user_choice.lower()
+
+        while (user_choice not in moves):
+            user_choice = input(f"{Username},Invalid input. Please type rock, paper, scissors: ")
+            user_choice = user_choice.lower()
+
+        if (user_choice == "rock") and (comp_choice == "scissors"):
+            print(f"Congrats, You win! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            player_wins += 1
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+        elif (comp_choice == "rock") and (user_choice == "scissors"):
+            print(f"Sorry, You lost this time! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            computer_wins += 1
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+        elif (user_choice == "rock") and (comp_choice == "rock"):
+            print(f"It's a tie! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+
+        if (user_choice == "paper") and (comp_choice == "rock"):
+            print(f"Congrats, You win! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            player_wins += 1
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+        elif (comp_choice == "paper") and (user_choice == "rock"):
+            print(f"Sorry, You lost this time! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            computer_wins += 1
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+        elif (user_choice == "paper") and (comp_choice == "paper"):
+            print(f"It's a tie! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+
+        if (user_choice == "scissors") and (comp_choice == "paper"):
+            print(f"Congrats, You win! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            player_wins += 1
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+        elif (comp_choice == "scissors") and (user_choice == "paper"):
+            print(f"Sorry, You lost this time! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            computer_wins += 1
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+        elif (user_choice == "scissors") and (comp_choice == "scissors"):
+            print(f"It's a tie! Computer chose: {comp_choice} - Player chose: {user_choice}")
+            print(f" Computer: {computer_wins} - Player: {player_wins}")
+
+    if (player_wins == 2):
+        print(f"HEY! You won the game!")
+    elif (computer_wins == 2):
+        print("Sorry, You lost the game!")
+
+    x = input("Do you want to play again?(y/n):")
+
+    if (x.lower() == "y"):
+        print("Let's start again.")
+        rock_paper_scissors(Username)
+    else:
+        print("Game over. See you next time!")
+
+
+Username = input("Please, enter your Username: ")
+rock_paper_scissors(Username)
